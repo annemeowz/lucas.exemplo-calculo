@@ -1,0 +1,51 @@
+Em App Java
+
+import model.Funcionario;
+import java.util.Scanner;
+
+public class App {
+
+
+public static void main(String[] args)
+throws Exception{
+    Scanner entrada = new Scanner(System.in);
+    Funcionario funcionario = new Funcionario(
+        (short)1,
+        "Tuane",
+        5
+    );
+
+    float salario = funcionario.calculoSalarioLiquido(5);
+    System.out.println(salario);
+ }
+}
+
+
+-------------------------------------------------------
+dentro de model = Funcionario
+
+package model;
+
+public class Funcionario {
+    public Funcionario(
+        short chapa,
+        String nome,
+        float valorHora) {
+    }
+    public float calculoSalarioLiquido(int i){
+        int horas = (12);
+        int diaTrabalhado = (28);
+
+        double descontoImpostoRenda = (7.5);
+        float descontoInss = (11);
+
+        float valorLiquido = (i * horas)*diaTrabalhado;
+
+        float valorDescontoInss = valorLiquido/descontoInss;
+        double valorDescontoImpostoRenda = valorLiquido/descontoImpostoRenda;
+
+        return (float) (valorLiquido - (valorDescontoInss+valorDescontoImpostoRenda));
+
+
+    }
+}
